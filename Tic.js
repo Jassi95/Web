@@ -57,7 +57,7 @@ function five_in_row(array){
     }
     //console.log(n)
     if (n==4){
-      if (turn == 1){
+      if (turn == 2){
         alert("Player 1 won!");
       }
       else{alert("Player 2 won!")}
