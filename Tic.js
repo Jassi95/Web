@@ -18,7 +18,7 @@ function addCell(tr,colnum) {
   td.id = colnum
   td.innerHTML = '';
   td.style = "width:30px;height:30px;font-weight: bold;text-align: center;font-size:1.6em";
-  td.onclick = "check(this);";
+  //td.onclick = "check(this);";Why doesn't this work?
   tr.appendChild(td)
 }
 
