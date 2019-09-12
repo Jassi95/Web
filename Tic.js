@@ -21,7 +21,7 @@ function timer() {//https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_
       var num = width * 1 / 10;
       num = num.toFixed(0)
       num = 10-num
-      //document.getElementById("demo").innerHTML = num;
+      document.getElementById("demo").innerHTML = num;
     }
   }
 }
