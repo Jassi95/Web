@@ -27,7 +27,7 @@ function timer() {//https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_
 }
 
 function makeMark(x,y){
-  var s =  document.getElementById("tbl").rows[x].cells[y];
+  var s =  document.getElementById("board").rows[x].cells[y];
   if (turn == 1){
     s.innerHTML="x";
     s.className="x"
@@ -48,19 +48,19 @@ function addCell(tr,colnum) {
 }
 
 
-function addRow(tbl, size, rownum) {
+function addRow(board, size, rownum) {
   var tr = document.createElement('tr');
   tr.id=rownum
   for (var i =0; i<size;i++){
     addCell(tr,i);
-    tbl.appendChild(tr)
+    board.appendChild(tr)
   }
 
 }
 
 function createTable(size){
   for (var i = 0; i < size; i++) {
-    addRow(tbl,size,i)
+    addRow(board,size,i)
   }
 }
 
@@ -135,7 +135,7 @@ function engine(x,y){
 
 
 function main() {
-  tbl = document.getElementById('tbl');
+  board = document.getElementById('board');
   createTable(size);
   var location = document.querySelector('table');
    // listen for a click
