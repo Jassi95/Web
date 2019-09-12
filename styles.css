@@ -9,6 +9,7 @@ td{
   text-align: center;
   font-style: 'Helvetica';
   font-size: 30px;
+  border: 1px solid black;
 }
 .x{
    background-color: rgba(124, 252, 0);
