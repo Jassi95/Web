@@ -1,14 +1,41 @@
 var size = 5;
 var gameTable = Array(size).fill().map(()=>Array(size).fill(0));//makes 5x5 table
 var turn = 1;
+var time;
 //functions to handle the HTML
+function timer() {//https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_progressbar_labels_js4
+  var elem = document.getElementById("myBar");
+  var width = 0;
+  time = setInterval(frame, 100);
+  function frame() {
+    if (width >= 100) {
+      clearInterval(time);
+      document.getElementById("myP").className = "w3-text-green w3-animate-opacity";
+      if (turn == 1) {
+        turn = 2
+      }else{turn = 1}
+      timer();
+    } else {
+      width++;
+      elem.style.width = width + '%';
+      var num = width * 1 / 10;
+      num = num.toFixed(0)
+      num = 10-num
+      document.getElementById("demo").innerHTML = num;
+    }
+  }
+}
+
 function makeMark(x,y){
   var s =  document.getElementById("tbl").rows[x].cells[y];
   if (turn == 1){
-    s.innerHTML="x"
-  }
+    s.innerHTML="x";
+    s.className="x"
+    }
+
   else{
-    s.innerHTML="o"
+    s.innerHTML="o";
+    s.className="o"
   }
 }
 
@@ -17,8 +44,6 @@ function addCell(tr,colnum) {
   var td = document.createElement('td');
   td.id = colnum
   td.innerHTML = '';
-  td.style = "width:30px;height:30px;font-weight: bold;text-align: center;font-size:1.6em";
-  //td.onclick = "check(this);";Why doesn't this work?
   tr.appendChild(td)
 }
 
@@ -96,6 +121,8 @@ function check(){
 
 
 function engine(x,y){
+ clearInterval(time);
+ timer();
  console.log(x,y,gameTable)
  if (gameTable[x][y]==0){
    gameTable[x][y]=turn;
@@ -112,11 +139,13 @@ function main() {
   createTable(size);
   var location = document.querySelector('table');
    // listen for a click
+   timer();
    location.addEventListener('click', function(ev){// This is used to handle onclick events
        // get the event targets ID
        var rowID = ev.target.id;
        var colID = ev.target.parentNode.id;
        console.log(colID,rowID);
        engine(colID,rowID);
+
    })
 }
