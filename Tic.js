@@ -10,7 +10,7 @@ function timer() {//https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_
   function frame() {
     if (width >= 100) {
       clearInterval(time);
-      document.getElementById("myP").className = "w3-text-green w3-animate-opacity";
+      //document.getElementById("myP").className = "w3-text-green w3-animate-opacity";
       if (turn == 1) {
         turn = 2
       }else{turn = 1}
