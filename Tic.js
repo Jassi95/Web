@@ -26,31 +26,23 @@ function timer() {//https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_
   }
 }
 
-function makeMark(x,y){
-  var s =  document.getElementById("board").rows[x].cells[y];
-  if (turn == 1){
-    s.innerHTML="x";
-    s.className="x"
-    }
-
-  else{
-    s.innerHTML="o";
-    s.className="o"
-  }
-}
-
-
 function addCell(tr,colnum) {
-  var td = document.createElement('td');
+  var td = document.createElement('div');
   td.id = colnum
+
+  td.className="box b-bottom col s2 push-s1 valign flow-text"
   td.innerHTML = '';
+  td.addEventListener("mousedown",()=> {
+    engine();
+  })
   tr.appendChild(td)
 }
 
 
 function addRow(board, size, rownum) {
-  var tr = document.createElement('tr');
+  var tr = document.createElement('div');
   tr.id=rownum
+  tr.className="row"
   for (var i =0; i<size;i++){
     addCell(tr,i);
     board.appendChild(tr)
@@ -121,12 +113,22 @@ function check(){
 
 
 function engine(x,y){
+ y = event.target.parentNode.id;
+ x = event.target.id;
  clearInterval(time);
  timer();
  console.log(x,y,gameTable)
  if (gameTable[x][y]==0){
    gameTable[x][y]=turn;
-   makeMark(x,y)
+   if (turn==1){
+   event.target.innerHTML = 'x'
+   event.target.className += " green"
+ }
+   else{
+   event.target.innerHTML = 'o';
+   event.target.className += " red accent-1";
+ }
+   //change turn
    if (turn==2){turn=1}
    else turn=2;
    check()
@@ -135,17 +137,9 @@ function engine(x,y){
 
 
 function main() {
-  board = document.getElementById('board');
+//  board = document.getElementById('board');
   createTable(size);
-  var location = document.querySelector('table');
+  var location = document.querySelector('div.box');
    // listen for a click
    timer();
-   location.addEventListener('click', function(ev){// This is used to handle onclick events
-       // get the event targets ID
-       var rowID = ev.target.id;
-       var colID = ev.target.parentNode.id;
-       console.log(colID,rowID);
-       engine(colID,rowID);
-
-   })
 }

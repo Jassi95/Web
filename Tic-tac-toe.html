@@ -4,18 +4,41 @@
   <head>
     <title> Tic-Tac-Toe </title>
     <meta charset="utf-8"/>
-    <link rel="stylesheet" type="text/css" href="styles.css"/>
-    <script src="Tic.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link type="text/css" rel="stylesheet" href="styles.css"/>
   <head\>
   <body onload='main()'>
-    <div >
-      <table id="board">
-      </table>
+    <header>
+      <div class="center-align">
+           <h1 >Tic Tac Toe</h1>
+      </div>
+    </header>
+    <div class="container z-depth-5">
+        <div class= "row"><!-- for padding-->
+          <div class="col s12"><p></p></div>
+        </div>
+
+        <div id="board" class="centered">
+        </div>
+
+        <div class= "row"><!-- for padding-->
+          <div class="col s12"><p></p></div>
+        </div>
+
+        <div class="container">
+          <div class="row">
+            <div class ="progress" style ="height:15px !important;">
+              <div id="myBar" class="determinate red" style="width:0%"></div>
+            </div>
+              <div class="col s12 flow-text">
+              <p id="myP">Time left <span id="demo">10</span> of 10 seconds</p>
+            </div>
+          </div>
+        </div>
+
     </div>
-    <div class = "w3-light-grey bar"><!--source: https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_progressbar_labels_js4-->
-      <div id="myBar" class= "w3-green bar"></div>
-    </div>
-    <p id="myP">Time left <span id="demo">10</span> of 10 seconds</p>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="Tic.js"></script>
   <body\>
 
 <html>
