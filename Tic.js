@@ -1,3 +1,4 @@
+// task 2 by Juho Jääskeläinen
 var size = 5;
 var gameTable = Array(size).fill().map(()=>Array(size).fill(0));//makes 5x5 table
 var turn = 1;
